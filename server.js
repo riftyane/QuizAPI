@@ -3,6 +3,7 @@ const cors = require('cors');
 const app = express();
 const port = 5050;
 const quizRoute = require('./router/quiz')
+const authRoute = require('./router/auth')
 const jobsheetRoute = require('./router/jobsheet')
 
 app.use(cors());
@@ -16,6 +17,7 @@ app.get('/', (req,res) => {
     res.send('Quiz ExpressJS API by Ersi');
 });
 
+app.use(authRoute)
 app.use('/api/quizzes', quizRoute)
 app.use('/api/jobsheet', jobsheetRoute)
 
